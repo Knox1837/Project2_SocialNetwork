@@ -1,0 +1,51 @@
+body{
+    background-color:#fafafa ;
+}
+.chat-body {
+    height: 500px;
+    overflow-y: auto; /* Add scrollbar if content overflows */
+  }
+
+  /* Circle */
+  .avatar {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  /* circle attributes */
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .message-content {
+    display: flow-root;
+    flex-direction: column;
+  }
+  
+  .message-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .username {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+
+  
+  .message-text {
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .email{
+    background-color: white;
+    padding: 10px;
+  }
+  

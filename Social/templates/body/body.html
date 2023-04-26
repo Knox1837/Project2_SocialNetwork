@@ -1,0 +1,49 @@
+{% extends 'master/master.html' %}
+
+{% block title %}
+Body
+{% endblock %}
+
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/design.css' %}"></link>
+{% endblock %}
+
+{% block content %}
+
+<div class="card p-3">
+    <div class="chat-body">
+      <div class="message">
+        <div class="avatar">
+          <img src="{% static 'media/lumine.jpg' %}" width="400" height="200">
+        </div>
+        <div class="message-content">
+          <div class="message-header">
+            <div class="username">
+            <h2>
+              User: {{data.username}}
+            </h2>
+            </div>
+            
+            <div class="email">
+                Email:{{data.email}}
+            </div>
+          </div>
+          <form action="{% url 'body' %}" method="post">
+            {% csrf_token %}
+            <div class="message-text">
+              <input type="text" name="caption" class="form-control mt-2" placeholder="Write Your Caption Here">
+            </div>
+            <div class="form-group mb-2">
+              <label for="image">Image</label>
+              <input type="image" name="image" class="form-control mt-2""></div>
+          </div>
+            <hr>
+            <input type="submit" value="Post" class="btn btn-primary mt-2">
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}

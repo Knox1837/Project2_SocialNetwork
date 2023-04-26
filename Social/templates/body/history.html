@@ -1,0 +1,55 @@
+{% extends 'master/master.html' %}
+
+{% block title %}
+Chat History
+{% endblock %}
+
+
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/design.css' %}"></link>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'body' %}">Send Messages</a></li>
+          <li class="breadcrumb-item active"> History</li>
+        </ol>
+      </nav>
+</div>
+<hr>
+
+<div class="card p-3">
+    <div class="chat-body">
+      <div class="message">
+        <div class="avatar">
+          <img src="{% static 'media/lumine.jpg' %}" width="400" height="200">
+        </div>
+        <h3>{{data.username}}</h3>
+        <table class="table table-striped table-hover">
+          <thead>
+              <tr>
+                  <th>S.No.</th>
+                  <th>Caption</th>
+                  <th colspan="2">Action</th>
+              </tr>                  
+          </thead>
+          <tbody>
+            {% for val in post %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{ val.caption }}</td>
+              <td><a href="{% url 'delete' val.id%}">Delete Post</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+            
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
